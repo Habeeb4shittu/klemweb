@@ -1,0 +1,46 @@
+@use "../base/var" as *;
+
+.accordion {
+    display: grid;
+    width: 90%;
+    max-width: 50rem;
+    box-shadow: 0 0.2rem 0.2rem $shadow;
+    border-radius: 0.5rem;
+    position: relative;
+    z-index: 5;
+
+    .heading {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: $primaryColor;
+        color: $accent;
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        padding: 0.8rem;
+        cursor: pointer;
+        min-height: 2rem;
+        position: relative;
+        transition: 0.5s;
+        border-radius: inherit;
+        overflow: hidden;
+
+        &.active {
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+    }
+
+    .content-wrapper {
+        height: 0;
+        overflow: hidden;
+        transition: 0.5s;
+
+        .content {
+            background: $primaryColor;
+            color: $accent;
+            transition: 0.5s;
+            border-radius: 0 0 0.5rem 0.5rem;
+            padding: 0.5rem;
+        }
+    }
+}

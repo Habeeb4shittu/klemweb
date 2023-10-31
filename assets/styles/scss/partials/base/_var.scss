@@ -1,0 +1,13 @@
+$fontFamily: "Raleway", sans-serif;
+$primaryColor: #0a2a66;
+$primaryColor-variant: #009fe3;
+$secondaryColor: #f2c53d;
+$shadow: #000000aa;
+$accent: #e7e7e7;
+$pad: 3rem;
+$md: 810px;
+$sm: 520px;
+
+%transition {
+    transition: 0.5s;
+}

@@ -1,0 +1,31 @@
+@use "../base/var" as *;
+
+@mixin btn($size) {
+    background: linear-gradient(to top right, $primaryColor, lighten($primaryColor, 20));
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 50px;
+    color: $secondaryColor;
+    font-size: $size;
+    box-shadow: 0 0.2rem 0.1rem $shadow;
+    text-decoration: none;
+
+    &:hover {
+        color: lighten($color: $secondaryColor, $amount: 10);
+        box-shadow: none;
+        @extend %transition;
+    }
+}
+@mixin nbtn($size) {
+    padding: 0.5rem 0.8rem;
+    border: none;
+    background-color: $primaryColor;
+    color: white;
+    font-size: $size;
+    text-decoration: none;
+    box-shadow: 0 5px 4px grey;
+
+    &:hover {
+        color: lighten($color: $secondaryColor, $amount: 10);
+    }
+}

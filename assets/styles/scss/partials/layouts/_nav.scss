@@ -1,0 +1,167 @@
+@use "../base/var" as *;
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+    padding: calc($pad / 1.2) calc($pad / 1.6);
+    position: sticky;
+    top: 0;
+    background: none;
+    z-index: 1000;
+
+    @media screen and (min-width: $md) {
+        padding: calc($pad / 1.2) $pad;
+    }
+
+    &.bg {
+        background: #fff;
+        box-shadow: 0.1rem 0.1rem 0.9rem lighten($color: $shadow, $amount: 45);
+    }
+
+    .toggler {
+        font-size: 1.8rem;
+        color: $primaryColor;
+        cursor: pointer;
+
+        @media screen and (min-width: $md) {
+            display: none;
+        }
+    }
+
+    ul {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 0;
+        justify-content: center;
+        position: absolute;
+        top: 99%;
+        flex-direction: column;
+        width: 100%;
+        left: 0;
+        padding-left: 0;
+        padding: 1rem;
+        transform: translateY(-200%);
+        @extend %transition;
+        background: #fff;
+
+        @media screen and (min-width: $md) {
+            position: static;
+            transform: translateY(0);
+            flex-direction: row;
+            padding: 0;
+            background: none;
+            margin-right: 0;
+            justify-content: end;
+            gap: 1.5rem;
+        }
+
+        &.down {
+            transform: translateY(0);
+            box-shadow: 0.1rem 0.1rem 0.9rem lighten($color: $shadow, $amount: 45);
+
+            @media screen and (min-width: $md) {
+                box-shadow: none;
+            }
+        }
+
+        li {
+            width: 100%;
+
+            &.dropdown {
+                position: relative;
+
+                &:hover {
+                    .dropdown-menu {
+                        @keyframes in {
+                            from {
+                                transform: translateY(10%);
+                                opacity: 0.5;
+                            }
+
+                            to {
+                                transform: translateY(0);
+                                opacity: 1;
+                            }
+                        }
+
+                        @media screen and (min-width: $md) {
+                            display: flex;
+                            animation: in 0.5s;
+                        }
+                    }
+                }
+
+                .dropdown-menu {
+                    position: absolute;
+                    top: 100%;
+                    display: none;
+                    border: none;
+                    justify-content: space-between;
+                    width: 27rem;
+                    padding: calc($pad / 2);
+                    left: -200%;
+                    border-radius: 1rem;
+                    box-shadow: 0 2px 2px lighten($shadow, 50);
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: start;
+                        align-items: center;
+
+                        h4 {
+                            align-self: start;
+                            font-weight: 600;
+                        }
+
+                        ul {
+                            display: grid;
+                            padding-left: 1rem;
+
+                            li {
+                                a {
+                                    font-size: 1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media screen and (min-width: $md) {
+                width: initial;
+            }
+
+            a {
+                display: block;
+                text-align: center;
+                height: 2.5rem;
+                color: $primaryColor;
+                width: 100%;
+                font-size: 1.3rem;
+                @extend %transition;
+
+                @media screen and (min-width: $md) {
+                    display: initial;
+                }
+
+                &:hover {
+                    color: $secondaryColor;
+                }
+            }
+        }
+    }
+
+    a {
+        img {
+            width: 200px;
+            @media (max-width: $md) {
+                width: 150px;
+            }
+        }
+    }
+}

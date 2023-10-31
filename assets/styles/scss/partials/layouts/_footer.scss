@@ -1,0 +1,99 @@
+@use "../base/var" as *;
+
+footer {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background: $primaryColor-variant;
+    // background: #000;
+    padding: calc($pad / 1.7);
+    gap: 2rem;
+    padding-bottom: 0.5rem !important;
+
+    @media screen and (min-width: $md) {
+        padding: $pad;
+    }
+
+    h3 {
+        color: white;
+        font-size: 1.7rem;
+        font-weight: bolder;
+    }
+
+    .wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: start;
+
+        .sec {
+            img {
+                width: 14rem;
+            }
+
+            p {
+                width: 100%;
+                max-width: 20rem;
+                text-align: justify;
+                font-weight: bolder;
+                color: white;
+            }
+
+            ul {
+                padding-left: 0;
+
+                &.apply {
+                    display: grid;
+                    place-items: center;
+                }
+
+                li {
+                    a {
+                        color: white;
+                        font-size: 1.1rem;
+                        @extend %transition;
+
+                        &:hover {
+                            color: $secondaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .soc {
+        display: flex;
+        justify-content: end;
+        align-items: end;
+
+        .socials {
+            display: flex;
+            width: 100%;
+            justify-content: start;
+            align-items: start;
+            gap: 1rem;
+            justify-self: start;
+
+            a {
+                font-size: 1.7rem;
+                color: $primaryColor;
+                @extend %transition;
+
+                &:hover {
+                    color: lighten($color: $secondaryColor, $amount: 10);
+                }
+            }
+        }
+    }
+}
+
+.copyright {
+    margin: 0 !important;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: calc($pad / 5) $pad;
+    background: $primaryColor;
+}
