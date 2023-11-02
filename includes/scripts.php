@@ -1,5 +1,4 @@
 <script src="../assets/scripts/all.min.js"></script>
-<!-- <script src="../assets/scripts/aos.js"></script> -->
 <script src="../assets/scripts/jquery.js"></script>
 <script src="../assets/scripts/scroll-reveal.js"></script>
 <script src="../assets/scripts/typewritter.min.js"></script>

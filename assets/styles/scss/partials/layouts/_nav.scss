@@ -1,167 +1,167 @@
-@use "../base/var" as *;
+@use "../base/var"as *;
 
 nav {
+    display: flex !important;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 3.5rem;
-    padding: calc($pad / 1.2) calc($pad / 1.6);
+    padding: 1.5rem 2.9rem;
+    height: 5.5rem;
     position: sticky;
-    top: 0;
-    background: none;
+    justify-content: space-between;
+    background: #e7e7e7;
+    align-items: center !important;
+    @extend %transition;
     z-index: 1000;
 
-    @media screen and (min-width: $md) {
-        padding: calc($pad / 1.2) $pad;
-    }
-
     &.bg {
-        background: #fff;
-        box-shadow: 0.1rem 0.1rem 0.9rem lighten($color: $shadow, $amount: 45);
+        background-color: white;
+        position: fixed;
+        @extend %transition;
     }
 
-    .toggler {
-        font-size: 1.8rem;
-        color: $primaryColor;
-        cursor: pointer;
+    @media (max-width:$md) {
+        position: sticky;
+        top: 0;
+    }
 
-        @media screen and (min-width: $md) {
-            display: none;
+    img {
+        width: 200px;
+
+        @media screen and (max-width: $md) {
+            width: 150px;
         }
     }
 
     ul {
         display: flex;
-        gap: 1rem;
         align-items: center;
-        margin-bottom: 0;
-        justify-content: center;
-        position: absolute;
-        top: 99%;
-        flex-direction: column;
-        width: 100%;
-        left: 0;
-        padding-left: 0;
-        padding: 1rem;
-        transform: translateY(-200%);
-        @extend %transition;
-        background: #fff;
+        width: 550px;
+        justify-content: space-between;
+        margin-top: 0;
+        padding: 0;
+        transform: translateY(8px);
 
-        @media screen and (min-width: $md) {
-            position: static;
-            transform: translateY(0);
-            flex-direction: row;
-            padding: 0;
-            background: none;
-            margin-right: 0;
-            justify-content: end;
+        @media (max-width:$md) {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 5rem;
+            width: 100%;
+            left: 0;
+            z-index: 1000;
+            background-color: white;
             gap: 1.5rem;
-        }
-
-        &.down {
-            transform: translateY(0);
+            padding: 1.5rem;
             box-shadow: 0.1rem 0.1rem 0.9rem lighten($color: $shadow, $amount: 45);
+            // display: none;
 
-            @media screen and (min-width: $md) {
-                box-shadow: none;
+            transform: translateY(-200%);
+            transition: .5s linear;
+
+            &.down {
+                transition: .5s linear;
+                transform: translateY(0);
+                box-shadow: 0.1rem 0.1rem 0.9rem lighten($color: $shadow, $amount: 45);
+
+
             }
         }
+
+
 
         li {
-            width: 100%;
 
-            &.dropdown {
+            &.drop {
                 position: relative;
 
-                &:hover {
-                    .dropdown-menu {
-                        @keyframes in {
-                            from {
-                                transform: translateY(10%);
-                                opacity: 0.5;
-                            }
+                &:hover .menu {
+                    transform: translateY(0);
+                    height: fit-content;
+                    padding: calc($pad / 2);
 
-                            to {
-                                transform: translateY(0);
-                                opacity: 1;
-                            }
-                        }
 
-                        @media screen and (min-width: $md) {
-                            display: flex;
-                            animation: in 0.5s;
-                        }
-                    }
                 }
 
-                .dropdown-menu {
-                    position: absolute;
-                    top: 100%;
+            }
+
+            .menu {
+                position: absolute;
+                top: 45px;
+                left: 0;
+                background-color: white;
+                display: flex;
+                border-radius: 1rem;
+                box-shadow: 0 2px 2px lighten($shadow, 50);
+                // width: 400px;
+                // @extend %transition;
+                justify-content: space-between;
+                gap: 2rem;
+                // transform: translateY(-200%);
+                height: 0;
+                padding: 0;
+                overflow: hidden;
+
+                // grid-template-columns: auto auto;
+                @media (max-width:$md) {
                     display: none;
-                    border: none;
-                    justify-content: space-between;
-                    width: 27rem;
-                    padding: calc($pad / 2);
-                    left: -200%;
-                    border-radius: 1rem;
-                    box-shadow: 0 2px 2px lighten($shadow, 50);
+                }
 
-                    div {
-                        display: flex;
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    width: 178px;
+
+                    h4 {
+                        align-self: start;
+                        font-weight: 600;
+                    }
+
+                    ul {
+                        display: grid;
                         flex-direction: column;
-                        justify-content: start;
-                        align-items: center;
+                        margin: 0;
+                        padding: 0;
+                        gap: 1rem;
 
-                        h4 {
-                            align-self: start;
-                            font-weight: 600;
-                        }
-
-                        ul {
-                            display: grid;
+                        li {
+                            text-align: left;
                             padding-left: 1rem;
 
-                            li {
-                                a {
-                                    font-size: 1rem;
-                                }
+                            a {
+                                font-size: 1rem;
                             }
                         }
                     }
                 }
             }
 
-            @media screen and (min-width: $md) {
-                width: initial;
-            }
 
-            a {
-                display: block;
-                text-align: center;
-                height: 2.5rem;
-                color: $primaryColor;
-                width: 100%;
-                font-size: 1.3rem;
-                @extend %transition;
 
-                @media screen and (min-width: $md) {
-                    display: initial;
-                }
 
-                &:hover {
-                    color: $secondaryColor;
-                }
-            }
         }
     }
 
+
     a {
-        img {
-            width: 200px;
-            @media (max-width: $md) {
-                width: 150px;
-            }
+        font-size: 1.3rem;
+        color: $primaryColor;
+        @extend %transition;
+
+        &:hover {
+            color: $secondaryColor;
         }
+    }
+
+    .toggler {
+        display: none;
+        font-size: 1.8rem;
+        color: $primaryColor;
+        cursor: pointer;
+
+        @media (max-width: $md) {
+            display: block;
+        }
+
     }
 }

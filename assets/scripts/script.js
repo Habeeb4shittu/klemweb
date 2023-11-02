@@ -1,3 +1,4 @@
+
 $(".copyright").find("span").append(new Date().getFullYear())
 $('.toggler').click(function () {
     $('nav ul').toggleClass('down')

@@ -1,12 +1,9 @@
-<nav>
-    <a href="/">
-        <img src="../assets/images/Nav-logo.png" alt="">
-    </a>
+<nav><a href="/"><img src="../assets/images/Nav-logo.png" alt=""></a>
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="#">About</a></li>
-        <li class="dropdown"><a href="#">Services</a>
-            <div class="dropdown-menu">
+        <li class="drop"><a href="#">Services</a>
+            <div class="menu">
                 <div>
                     <h4>Courses</h4>
                     <ul>
@@ -27,14 +24,7 @@
                 </div>
             </div>
         </li>
-
         <li><a href="#">Contact</a></li>
-        <li><a href="#">Blog</a></li>
-        <a href="https://www.cohort.klemweb.com" class="apply-link">
-            Apply Now
-        </a>
-    </ul>
-    <span class="toggler">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-    </span>
+        <li><a href="#">Blog</a></li><a href="https://www.cohort.klemweb.com" class="apply-link">Apply Now </a>
+    </ul><span class="toggler"><i class="fas fa-bars" aria-hidden="true"></i></span>
 </nav>
